@@ -1,0 +1,20 @@
+.backcolor {
+    background-color: #2D2724;
+}
+.title-color {
+    color: #C4934E;
+}
+.thumbimg {
+    width: 100px;
+}
+.sizeforIcons{
+    width:  40px;
+    height: 40px;
+}
+.describes {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+.titles {
+    font-family: 'EB Garamond', serif;
+}
