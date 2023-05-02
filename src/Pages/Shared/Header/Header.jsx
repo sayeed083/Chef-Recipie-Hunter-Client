@@ -2,8 +2,9 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import './Header.css';
 
 const Header = () => {
     const{ user, logOut} = useContext(AuthContext)
@@ -18,17 +19,19 @@ const Header = () => {
             {/* NavSection  */}
 
 
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='bgs'>
                 <Container>
                     <img className='rounded-circle me-2' style={{ height: 50 }} src="/public/cooking.png" alt="" />
-                    <Navbar.Brand> <Link className='text-decoration-none text-warning me-3' to="/">Chef's Customer</Link>
+                    <Navbar.Brand> <Link className='text-decoration-none text-warning me-3 text-size' to="/">Chef's Customer</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                                <Link className='text-decoration-none text-warning me-3' to="/">Home</Link>
+                                {/* <Link className='text-decoration-none text-warning me-3' to="/">Home</Link> */}
+                                <NavLink className='text-decoration-none me-3 text-size' to="/">Home</NavLink>
+                                <NavLink className='text-decoration-none text-size'  to="/blogs">Blog</NavLink>
                             
-                                <Link className='text-decoration-none text-warning' to="/blogs">Blog</Link>
+                                {/* <Link className='text-decoration-none text-warning' to="/blogs">Blog</Link> */}
                            
                         </Nav>
                         <Nav>

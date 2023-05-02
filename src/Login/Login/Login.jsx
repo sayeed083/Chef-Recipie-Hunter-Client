@@ -8,16 +8,18 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
-  const { signIn, loginWithGoogle } = useContext(AuthContext);
+  const { signIn, loginWithGoogle, loginWithGitHub } = useContext(AuthContext);
   const navigate = useNavigate()
   const [logerror, setLogerror] = useState('')
+
+
+  // -----------Email Password SignIn Side----------- 
 
   const handleLogin = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-
     console.log(email, password);
 
     signIn(email, password)
@@ -32,18 +34,37 @@ const Login = () => {
         setLogerror(error.message);
       })
   }
-  
+
+
+
+  // -----------Google SignIn Side----------- 
+
   const handleGoogleSignIn = () => {
     loginWithGoogle()
-    .then (result => {
-      const user = result.user;
-      console.log(user);
-      navigate('/')
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate('/')
+      })
+      .catch(error => {
+        console.log(error);
+      })
 
+  }
+
+
+  // -----------GitHub SignIn Side----------- 
+
+  const handleGitHubSignIn = () => {
+    loginWithGitHub()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate('/')
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
 
@@ -54,18 +75,31 @@ const Login = () => {
 
 
       <Form onSubmit={handleLogin}>
+
+        {/* ------------
+              Email Side       
+            ---------------*/}
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" name='email' placeholder="Enter email" required />
-
         </Form.Group>
+
+        {/* ------------
+              Password Side       
+            ---------------*/}
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name='password' placeholder="Password" required />
         </Form.Group>
         <p className='text-danger'>{logerror}</p>
-        <Button variant="primary" type="submit">
+
+        {/* ------------
+              Button Side       
+            ---------------*/}
+
+        <Button variant="warning" type="submit">
           Login
         </Button>
         <br />
@@ -74,11 +108,17 @@ const Login = () => {
         </Form.Text>
       </Form>
 
+
       <hr />
       <p className='text-center'>Or</p>
+
+      {/* ------------
+              Google and GitHub Sides       
+            ---------------*/}
+
       <div className='d-flex justify-content-between align-items-center'>
-      <Button className='' onClick={handleGoogleSignIn} variant="outline-info"> <FaGoogle></FaGoogle> Login With Google</Button>
-      <Button variant="outline-secondary"> <FaGithub></FaGithub> Login With Github</Button>
+        <Button className='' onClick={handleGoogleSignIn} variant="outline-info"> <FaGoogle></FaGoogle> Login With Google</Button>
+        <Button onClick={handleGitHubSignIn} variant="outline-secondary"> <FaGithub></FaGithub> Login With Github</Button>
 
       </div>
 

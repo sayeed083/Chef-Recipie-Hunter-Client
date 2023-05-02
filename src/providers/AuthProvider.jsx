@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -13,11 +13,30 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
 
-    const provider = new GoogleAuthProvider()
+
+
+      // -----------Special Providers----------- 
+
+    const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
+
+
+
+
+      // -----------Google----------- 
     const loginWithGoogle = () => {
-        return signInWithPopup(auth, provider)
+        return signInWithPopup(auth, googleProvider)
     }
 
+      // -----------GitHub----------- 
+
+    const loginWithGitHub = () => {
+        return signInWithPopup (auth, githubProvider)
+    } 
+
+
+
+      // -----------Creating User For Email & Password Sign in----------- 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
      }
@@ -25,13 +44,16 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword (auth, email, password);
      }
 
+       // -----------Sign Out Toggle----------- 
+
      const logOut = () => {
         return signOut(auth)
      }
 
+       // -----------Observing User Change----------- 
      useEffect(()=> {
         const unsubscribed = onAuthStateChanged(auth, loggedUser => {
-           console.log('logged in user auth state observer', loggedUser); 
+           console.log('Loggedin user auth-state observer', loggedUser); 
            setUser(loggedUser);
         })
         return () => {
@@ -43,14 +65,15 @@ const AuthProvider = ({children}) => {
 
 
 
-
+  // -----------Created a global info for use the functions in different components----------- 
 
     const authInfo = {
         user,
         createUser,
         signIn,
         logOut,
-        loginWithGoogle
+        loginWithGoogle,
+        loginWithGitHub
     }
 
     return (

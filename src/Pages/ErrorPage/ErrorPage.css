@@ -1,0 +1,19 @@
+.full-image {
+    width: 100%;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .e-title {
+    font-size: 100px;
+  }
+  .describe{
+    font-size: 20px; 
+    color: darkviolet;
+  }
+  .error-name {
+    font-size: 150px;
+  }

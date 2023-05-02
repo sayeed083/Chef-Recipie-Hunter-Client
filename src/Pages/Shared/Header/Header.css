@@ -1,0 +1,15 @@
+.bgs{
+    background-color: #584b45;
+}
+.active {
+    color: crimson;
+    text-decoration: none;
+    font-weight: 500;
+
+
+}
+
+.text-size{
+    font-size: 25px;
+    font-family: 'EB Garamond', serif;
+}
