@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaGooglePlusG, FaPinterest, FaCopyright, FaMapMa
 const Footer = () => {
     return (
         <div>
-            <h2 className='text-center'>This is Footer</h2>
             <div className='backcolor py-3'>
                 
                 <h1 className='text-center title-color display-1 titles'>Subscribe and Stay updated !</h1>
