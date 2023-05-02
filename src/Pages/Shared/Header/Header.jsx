@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { useContext } from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
+    const{user} = useContext(AuthContext)
     return (
         <div>
 
@@ -13,22 +16,29 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
                     <img className='rounded-circle me-2' style={{ height: 50 }} src="/public/cooking.png" alt="" />
-                    <Navbar.Brand href="#home">Chef's Customer</Navbar.Brand>
+                    <Navbar.Brand> <Link className='text-decoration-none text-warning me-3' to="/">Chef's Customer</Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#features">
-                                <Link className='text-decoration-none text-warning' to="/">Home</Link>
-                            </Nav.Link>
-                            <Nav.Link href="#pricing">
+                                <Link className='text-decoration-none text-warning me-3' to="/">Home</Link>
+                            
                                 <Link className='text-decoration-none text-warning' to="/blogs">Blog</Link>
-                            </Nav.Link>
+                           
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                <Button variant="outline-warning">Log In</Button>
-                            </Nav.Link>
+                            
+                            { user && <Nav.Link href="#deets">{user.displayName}</Nav.Link>}
+
+
+                            
+                                { user ?
+                                    <Button variant="outline-warning">Log Out</Button> :
+                                    <Link to="/login">
+                                        <Button variant="outline-warning">Log In</Button>
+                                    </Link>
+                                    
+                                    }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
