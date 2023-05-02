@@ -8,7 +8,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate()
   const [logerror, setLogerror] = useState('')
 
@@ -32,6 +32,19 @@ const Login = () => {
         setLogerror(error.message);
       })
   }
+  
+  const handleGoogleSignIn = () => {
+    loginWithGoogle()
+    .then (result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
+  }
+
 
 
   return (
@@ -63,7 +76,7 @@ const Login = () => {
       <hr />
       <p className='text-center'>Or</p>
       <div className='d-flex justify-content-between align-items-center'>
-      <Button className='' variant="outline-info"> <FaGoogle></FaGoogle> Login With Google</Button>
+      <Button className='' onClick={handleGoogleSignIn} variant="outline-info"> <FaGoogle></FaGoogle> Login With Google</Button>
       <Button variant="outline-secondary"> <FaGithub></FaGithub> Login With Github</Button>
 
       </div>
