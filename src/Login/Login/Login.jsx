@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,6 +9,7 @@ const Login = () => {
 
     const {signIn} = useContext(AuthContext);
     const navigate = useNavigate()
+    const [logerror, setLogerror] = useState('')
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,9 +24,11 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             navigate('/')
+            setLogerror('')
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            setLogerror(error.message);
         })
     }
 
@@ -45,6 +49,7 @@ const Login = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" required />
       </Form.Group>
+      <p className='text-danger'>{logerror}</p>
       <Button variant="primary" type="submit">
         Login
       </Button>
@@ -52,13 +57,9 @@ const Login = () => {
       <Form.Text className="text-success">
           Don't Have an Account ? <Link className='text-decoration-none' to="/register">Register</Link>
         </Form.Text>
-      <Form.Text className="text-success">
-          
-        </Form.Text>
-      <Form.Text className="text-danger">
-          
-        </Form.Text>
     </Form>
+
+      
 
         </div>
     );

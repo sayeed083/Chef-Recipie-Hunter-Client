@@ -1,10 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+
+  const [regerror, setRegerror] = useState('')
 
     const {createUser} = useContext(AuthContext);
 
@@ -22,12 +25,16 @@ const Register = () => {
         .then(result => {
             const createdUser = result.user;
             console.log(createdUser);
+            setRegerror('');
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            setRegerror(error.message);
         })
 
     }
+
+
 
 
 
@@ -66,6 +73,7 @@ const Register = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" required />
       </Form.Group>
+      <p>{regerror}</p>
 
 
 
