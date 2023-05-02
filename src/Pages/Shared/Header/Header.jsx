@@ -6,7 +6,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
-    const{user} = useContext(AuthContext)
+    const{ user, logOut} = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+        .then()
+        .catch(error => console.log(error));
+    }
     return (
         <div>
 
@@ -28,12 +33,12 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             
-                            { user && <Nav.Link href="#deets">{user.displayName}</Nav.Link>}
+                            { user && <Nav.Link href="#deets">{user.displayName}Sayeed</Nav.Link>}
 
 
                             
                                 { user ?
-                                    <Button variant="outline-warning">Log Out</Button> :
+                                    <Button onClick={handleLogOut} variant="outline-warning">Log Out</Button> :
                                     <Link to="/login">
                                         <Button variant="outline-warning">Log In</Button>
                                     </Link>
