@@ -33,7 +33,12 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             
-                            { user && <Nav.Link href="#deets">{user.displayName}Sayeed</Nav.Link>}
+                            { user && 
+                            
+                            <img className='rounded-circle me-3' style={{height:50} } src={user.photoURL} alt="" />
+                            
+                            }
+                            
 
 
                             
