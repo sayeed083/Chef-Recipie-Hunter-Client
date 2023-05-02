@@ -26,6 +26,7 @@ const Register = () => {
             const createdUser = result.user;
             console.log(createdUser);
             setRegerror('');
+            event.target.reset();
         })
         .catch(error => {
             console.log(error.message);
@@ -73,7 +74,7 @@ const Register = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" required />
       </Form.Group>
-      <p>{regerror}</p>
+      <p className='text-danger'>{regerror}</p>
 
 
 
