@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { FcLike } from "react-icons/fc";
+import './ChefRecipies.css'
 
 const ChefRecipies = () => {
     const {rId} = useParams()
@@ -21,8 +23,17 @@ const ChefRecipies = () => {
 
     return (
         <div>
-            <h2>This is Chef Recipies: {recipes.chefName} </h2>
+
+            <div className='border rounded conainsMargin p-5'>
+            <img src={recipes.chefPicture} alt="" />
+            <h2 className='chefName'> {recipes.chefName} </h2>
+            <p className='chefInfo'>{recipes.bio}</p>
+            <p className='chefInfo'>Likes: {recipes.likes}<FcLike></FcLike></p>
+            <p className='chefInfo'>Numbers of recipes: {recipes.numberOfRecipes}</p>
+            <p className='chefInfo'>Experience: {recipes.yearsOfExperience}</p>
+            </div>
             
+
         </div>
     );
 };

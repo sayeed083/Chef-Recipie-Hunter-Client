@@ -23,7 +23,7 @@ const ChefSideSingle = ({chef}) => {
 
 
         
-        <Button variant="outline-info"> <Link to={`/viewrecipies/${id}`}> View Recipes</Link> </Button>
+        <Button variant="outline-info"> <Link className='text-decoration-none' to={`/viewrecipies/${id}`}> View Recipes</Link> </Button>
       </Card.Body>
     </Card>
               
