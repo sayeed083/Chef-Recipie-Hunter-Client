@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ChefSideSingle from '../ChefSideSingle/ChefSideSingle';
+import './ChefSide.css'
 
 const ChefSide = () => {
 
@@ -28,8 +29,8 @@ const ChefSide = () => {
 
     return (
         <div>
-            <h2>Chefs are here {chefs.length} </h2>
-            
+            <h2 className='text-center title text-warning'>Top Chef's</h2>
+             
             <div className='row row-cols-1 row-cols-md-2 g-4 m-0'>
             {
                 chefs.map(chef => 
