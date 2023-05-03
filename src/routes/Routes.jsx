@@ -4,6 +4,7 @@ import Login from "../Login/Login/Login";
 import Register from "../Login/Register/Register";
 import Blogs from "../Pages/Blogs/Blogs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ChefRecipies from "../Pages/Home/Chef/ChefRecipies/ChefRecipies";
 import Home from "../Pages/Home/Home/Home";
 
 
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/viewrecipies/:rId',
+                element: <ChefRecipies></ChefRecipies>,
+                loader: ({params}) => fetch (`http://localhost:5000/categoryNews/${params.rId}`)
             }
         ]
     }

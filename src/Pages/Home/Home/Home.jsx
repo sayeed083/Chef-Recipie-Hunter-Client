@@ -1,4 +1,5 @@
 import React from "react";
+import ChefSide from "../Chef/ChefSide/ChefSide";
 import HomeBanner from "../HomeBanner/HomeBanner";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
                 <img style={{width:50}} src="/public/chef.png" alt="" />
             </div>
             <HomeBanner></HomeBanner>
+            <ChefSide></ChefSide>
         </div>
     );
 };
