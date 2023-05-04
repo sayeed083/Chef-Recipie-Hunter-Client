@@ -2,6 +2,7 @@ import React from "react";
 import ChefSide from "../Chef/ChefSide/ChefSide";
 import FoodCategories from "../FoodCategories/FoodCategories";
 import HomeBanner from "../HomeBanner/HomeBanner";
+import PopularRecipies from "../PopularRecipies/PopularRecipies";
 import './Home.css'
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <HomeBanner></HomeBanner>
             <ChefSide></ChefSide>
             <FoodCategories></FoodCategories>
+            <PopularRecipies></PopularRecipies>
             
         </div>
     );
