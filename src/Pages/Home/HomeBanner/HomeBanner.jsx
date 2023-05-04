@@ -20,7 +20,7 @@ const HomeBanner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="/public/foodSlide1.jpg"
+          src="https://i.postimg.cc/hP2fjVHG/food-Slide1.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -34,7 +34,7 @@ const HomeBanner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="/public/foodSlide2.jpg"
+          src="https://i.postimg.cc/1XcVMTC0/food-Slide2.jpg"
           alt="Second slide"
         />
 
@@ -50,7 +50,7 @@ const HomeBanner = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="/public/foodSlide3.jpg"
+          src="https://i.postimg.cc/ZKs5Z4dB/food-Slide3.jpg"
           alt="Third slide"
         />
 

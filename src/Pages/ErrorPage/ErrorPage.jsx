@@ -7,7 +7,7 @@ import { FaDoorOpen } from 'react-icons/fa';
 const ErrorPage = () => {
     return (
         <div>
-            <img className='full-image' src="/public/bg2.jpg" alt="" />
+            <img className='full-image' src="https://i.postimg.cc/Sxc73TnP/bg2.jpg" alt="" />
             
             <div className='centered  text-white '>
                 <h1 className='text-center text-danger mb-2 error-name'>Error 404</h1>

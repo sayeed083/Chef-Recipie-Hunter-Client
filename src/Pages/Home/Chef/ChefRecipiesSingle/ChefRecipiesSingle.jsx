@@ -4,9 +4,32 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from 'react-rating'
 import { Button, Card } from 'react-bootstrap';
 import './ChefRecipiesSingle.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+
 
 const ChefRecipiesSingle = ({ rec }) => {
     const { recipeName, ingredients, cookingMethod, rating } = rec
+
+
+    const [disabledButton, setDisabledButton] = useState(false)
+
+    const handleFavourite = () => {
+        setDisabledButton(true)
+        toast('Added To Favourites 💜', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+    }
+
+
     return (
         <div>
 
@@ -38,9 +61,12 @@ const ChefRecipiesSingle = ({ rec }) => {
                         ></Rating>  {rating}
 
                     </Card.Text>
-                    <Button variant="outline-danger"><FcLike></FcLike> </Button>
+                    <Button onClick={handleFavourite} disabled ={disabledButton} variant="outline-danger">Add to Favourites <FcLike></FcLike> </Button>
+                    
                 </Card.Body>
             </Card>
+            
+            
 
         </div>
     );

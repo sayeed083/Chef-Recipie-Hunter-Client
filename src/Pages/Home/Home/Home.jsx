@@ -8,10 +8,11 @@ const Home = () => {
         <div>
             <div className="d-flex gap-3 justify-content-center align-items-center my-3">
                 <h1 className='text-center titleHome text-warning'>Taste The Food You Like</h1>
-                <img style={{width:50}} src="/public/chef.png" alt="" />
+                <img style={{width:50}} src="https://i.postimg.cc/nLVqXHL4/chef.png" alt="" />
             </div>
             <HomeBanner></HomeBanner>
             <ChefSide></ChefSide>
+            
         </div>
     );
 };

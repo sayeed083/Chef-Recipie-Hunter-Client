@@ -5,9 +5,11 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import './ChefRecipies.css'
 import ChefRecipiesSingle from '../ChefRecipiesSingle/ChefRecipiesSingle';
 import { FaRegThumbsUp } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChefRecipies = () => {
-    const {rId} = useParams()
+    const { rId } = useParams()
     const viewrecipies = useLoaderData();
 
     const [recipes, setRecipies] = useState([])
@@ -16,14 +18,14 @@ const ChefRecipies = () => {
     // const {chefName} =recipes
 
 
-    useEffect ( () => {
-        const recipieDetails = viewrecipies.find((recipe) => recipe.id == parseInt (rId) );
+    useEffect(() => {
+        const recipieDetails = viewrecipies.find((recipe) => recipe.id == parseInt(rId));
         // console.log(recipieDetails);
         setRecipies(recipieDetails)
         setSingleRecipe(recipieDetails.recipe)
 
 
-        
+
     })
     console.log(singleRecipe);
 
@@ -31,12 +33,12 @@ const ChefRecipies = () => {
         <div>
 
             <div className='border rounded conainsMargin p-5'>
-            <img src={recipes.chefPicture} alt="" />
-            <h2 className='chefName'> {recipes.chefName} </h2>
-            <p className='chefInfo'>{recipes.bio}</p>
-            <p className='chefInfo'>Likes: {recipes.likes} <FaRegThumbsUp></FaRegThumbsUp> </p>
-            <p className='chefInfo'>Numbers of recipes: {recipes.numberOfRecipes}</p>
-            <p className='chefInfo'>Experience: {recipes.yearsOfExperience}</p>
+                <img src={recipes.chefPicture} alt="" />
+                <h2 className='chefName'> {recipes.chefName} </h2>
+                <p className='chefInfo'>{recipes.bio}</p>
+                <p className='chefInfo'>Likes: {recipes.likes} <FaRegThumbsUp></FaRegThumbsUp> </p>
+                <p className='chefInfo'>Numbers of recipes: {recipes.numberOfRecipes}</p>
+                <p className='chefInfo'>Experience: {recipes.yearsOfExperience}</p>
             </div>
 
             <div>
@@ -46,16 +48,30 @@ const ChefRecipies = () => {
                 {
                     singleRecipe.map(rec =>
                         <ChefRecipiesSingle
-                        key={rec.id}
-                        rec={rec}
+                            key={rec.id}
+                            rec={rec}
                         >
 
                         </ChefRecipiesSingle>
-                        
-                        )
+
+                    )
                 }
+
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+
             </div>
-            
+
 
         </div>
     );

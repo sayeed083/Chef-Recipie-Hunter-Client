@@ -15,7 +15,7 @@ const Footer = () => {
 
                         {/* Title Side  */}
                         <div className='d-flex align-items-center gap-3 mb-4'>
-                        <img className='thumbimg' src="/public/cooking.png" alt="" />
+                        <img className='thumbimg' src="https://i.postimg.cc/G3v9nWLd/cooking.png" alt="" />
                         <h1 className='title-color titles'>Chef's Customer</h1>
                         </div>
                         <p className='text-white describes'>We strive to provide you with a culinary experience that is both delicious and memorable. <br /> We use only the freshest and highest quality ingredients in our dishes and put our heart and soul into every plate we serve. <br /> We are always looking for ways to improve and enhance your dining experience, and we value your feedback. Please don't hesitate <br /> to let us know if there's anything we can do to make your visit more enjoyable.</p>
