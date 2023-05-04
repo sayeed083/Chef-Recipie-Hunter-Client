@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path: '/viewrecipies/:rId',
                 element: <ChefRecipies></ChefRecipies>,
-                loader: ({params}) => fetch (`http://localhost:5000/categoryNews/${params.rId}`)
+                loader: ({params}) => fetch (`http://localhost:5000/singleChefRecipies/${params.rId}`)
             }
         ]
     }
