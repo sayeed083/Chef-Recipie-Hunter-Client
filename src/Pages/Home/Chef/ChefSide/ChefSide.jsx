@@ -18,7 +18,7 @@ const ChefSide = () => {
     // Using Effect 
 
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://a-10-chef-recipe-server-sayeed083.vercel.app/chefs')
             .then(res => res.json())
             .then(data => {
                 setChefs(data)

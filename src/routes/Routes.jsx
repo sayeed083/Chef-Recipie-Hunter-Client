@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path: '/viewrecipies/:rId',
                 element: <PrivateRoute><ChefRecipies></ChefRecipies></PrivateRoute>,
-                loader: ({params}) => fetch (`http://localhost:5000/singleChefRecipies/${params.rId}`)
+                loader: ({params}) => fetch (`https://a-10-chef-recipe-server-sayeed083.vercel.app/singleChefRecipies/${params.rId}`)
             }
         ]
     }
