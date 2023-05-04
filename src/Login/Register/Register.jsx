@@ -95,15 +95,6 @@ const Register = () => {
         </Form.Group>
 
 
-        {/* ------------------
-                        Check-Accept Side               
-                ------------------- */}
-
-
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" name='accept' label="Accept Terms And Conditions" />
-        </Form.Group>
-
 
         {/* ------------------
                         Button Side               

@@ -6,6 +6,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ChefRecipies from "../Pages/Home/Chef/ChefRecipies/ChefRecipies";
 import Home from "../Pages/Home/Home/Home";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/viewrecipies/:rId',
-                element: <ChefRecipies></ChefRecipies>,
+                element: <PrivateRoute><ChefRecipies></ChefRecipies></PrivateRoute>,
                 loader: ({params}) => fetch (`http://localhost:5000/singleChefRecipies/${params.rId}`)
             }
         ]

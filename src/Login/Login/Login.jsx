@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
@@ -10,7 +10,9 @@ const Login = () => {
 
   const { signIn, loginWithGoogle, loginWithGitHub } = useContext(AuthContext);
   const navigate = useNavigate()
+  const location = useLocation()
   const [logerror, setLogerror] = useState('')
+  const from = location.state?.from?.pathname  || '/'
 
 
   // -----------Email Password SignIn Side----------- 
@@ -26,7 +28,7 @@ const Login = () => {
       .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate('/')
+        navigate(from, {replace: true} )
         setLogerror('')
       })
       .catch(error => {
