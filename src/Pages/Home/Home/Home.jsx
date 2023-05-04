@@ -1,5 +1,6 @@
 import React from "react";
 import ChefSide from "../Chef/ChefSide/ChefSide";
+import FoodCategories from "../FoodCategories/FoodCategories";
 import HomeBanner from "../HomeBanner/HomeBanner";
 import './Home.css'
 
@@ -12,6 +13,7 @@ const Home = () => {
             </div>
             <HomeBanner></HomeBanner>
             <ChefSide></ChefSide>
+            <FoodCategories></FoodCategories>
             
         </div>
     );

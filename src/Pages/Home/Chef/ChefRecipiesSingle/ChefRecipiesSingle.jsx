@@ -35,7 +35,7 @@ const ChefRecipiesSingle = ({ rec }) => {
 
             <Card style={{ width: '35rem', height: '40rem' }} className='mb-5 me-5 ms-4'>
                 <Card.Body>
-                    <Card.Title className='title'>{recipeName}</Card.Title>
+                    <Card.Title className='recipie-title'>{recipeName}</Card.Title>
                     <hr />
                     <Card.Text>
                         <span className='ingredientsSide'> Ingredients:</span> <ol className='text-danger ingredients text-center list-unstyled'>
