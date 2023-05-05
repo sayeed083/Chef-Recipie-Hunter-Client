@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import './Register.css'
 
 const Register = () => {
 
@@ -19,7 +20,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    console.log( name, photo);
+    
 
 
     createUser(email, password)
@@ -42,8 +43,8 @@ const Register = () => {
 
 
   return (
-    <div className='w-25 mx-auto my-5'>
-      <h2 className='text-center'>Please Register</h2>
+    <div className='w-25 mx-auto my-5  border border-success rounded p-5'>
+      <h2 className='text-center text-warning headline'>Please Register</h2>
       <Form onSubmit={handleRegistration}>
 
         {/* ------------------

@@ -5,7 +5,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
-
+import './Login.css'
 const Login = () => {
 
   const { signIn, loginWithGoogle, loginWithGitHub } = useContext(AuthContext);
@@ -72,8 +72,8 @@ const Login = () => {
 
 
   return (
-    <div className='w-25 mx-auto my-5'>
-      <h2 className='text-center'>Please Log In</h2>
+    <div className='w-25 mx-auto my-5 border border-success rounded p-5'>
+      <h2 className='text-center text-warning logtitle'>Please Log In</h2>
 
 
       <Form onSubmit={handleLogin}>
