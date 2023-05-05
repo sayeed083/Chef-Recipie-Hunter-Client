@@ -9,7 +9,7 @@ const Register = () => {
 
   const [regerror, setRegerror] = useState('')
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, handleNamePhotoUrl } = useContext(AuthContext);
 
 
   const handleRegistration = event => {
@@ -19,11 +19,13 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+    console.log( name, photo);
 
 
     createUser(email, password)
       .then(result => {
         const createdUser = result.user;
+        handleNamePhotoUrl(createdUser, name, photo)
         console.log(createdUser);
         setRegerror('');
         event.target.reset();
